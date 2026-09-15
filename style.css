@@ -19,10 +19,12 @@ nav {
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     margin: 0 12px;
     font-weight: bold;
+    display: inline-block;
+    padding: 5px;
 }
 
 nav a:hover {
@@ -117,12 +119,15 @@ main {
 .btn {
     display: inline-block;
     background: #12355b;
-    color: white;
+    color: #ffffff;
     padding: 12px 22px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     margin: 5px;
+    font-size: 16px;
+    line-height: 1.4;
+    white-space: normal;
 }
 
 .btn:hover {
