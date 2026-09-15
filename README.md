@@ -20,3 +20,8 @@ Essential emergency supplies such as first-aid kits, drinking water, flashlights
 ![Emergency Shelter](disaster_image_2.jpg)
 
 Emergency shelters provide a safe temporary place for people affected by disasters. Our platform helps users identify nearby shelters and access information about available assistance and essential resources.
+![Evacuation map](IMG_20260915_195324.png)
+## Evacuation Map
+
+An evacuation map shows safe routes, emergency exits, shelters, and important locations during a disaster. It helps people understand where to go and which routes to follow to reach a safe place quickly. An AI-powered system can use a person's location and available map information to suggest a suitable nearby shelter and safer route.
+
