@@ -1,4 +1,4 @@
-# Smart Shelter and Resource Finder
+# SMART SHELTER AND RESOURCE FINDER 
 
 ## Problem Statement
 
