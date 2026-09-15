@@ -8,7 +8,7 @@ The Smart Shelter and Resource Finder is an AI-powered platform designed to help
 
 The main goal is to make disaster-related information easier to access and help people find the right assistance at the right time.
 ## DISASTER PREPAREDNESS 
-## Disaster Supply Kit
+### DISASTER SUPPLY KIT 
 ![Disaster Supply Kit](IMG_20260915_183223.png)
 A disaster supply kit contains essential items such as food, drinking water, first-aid supplies, medicines, flashlights, batteries, hygiene products, blankets, and other emergency equipment. Having these supplies ready can help people stay prepared during disasters and emergencies.
 ## Emergencency Supplies
