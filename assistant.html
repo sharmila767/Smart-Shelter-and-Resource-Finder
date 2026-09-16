@@ -1,18 +1,17 @@
-            <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Assistant | Smart Shelter</title>
+    <title>AI Assistant | RescueAI</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Navigation -->
     <nav>
         <a href="index.html">Home</a>
         <a href="shelters.html">Find Shelter</a>
@@ -21,109 +20,99 @@
         <a href="assistant.html">AI Assistant</a>
     </nav>
 
-
     <main>
 
         <section class="page-header">
 
-            <h1>🤖 Disaster Response Assistant</h1>
+            <h1>🤖 RescueAI</h1>
 
             <p>
-                Get quick general guidance for common
-                disaster situations.
+                Intelligent Disaster Response Assistant
             </p>
 
         </section>
-
-
-        <!-- Questions -->
-        <section class="cards">
-
-            <div class="card">
-
-                <h2>🌊 Flood</h2>
-
-                <p>
-                    Move to a safer or higher location,
-                    avoid moving through floodwater,
-                    and follow official evacuation instructions.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h2>🌪️ Cyclone</h2>
-
-                <p>
-                    Stay indoors in a safe area,
-                    keep away from windows, and follow
-                    official weather and emergency updates.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h2>🌍 Earthquake</h2>
-
-                <p>
-                    During shaking, protect yourself from
-                    falling objects and follow official
-                    emergency guidance.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h2>🚨 Emergency Help</h2>
-
-                <p>
-                    If there is immediate danger, contact
-                    local emergency services and follow
-                    instructions from authorities.
-                </p>
-
-            </div>
-
-        </section>
-
 
         <section class="hero">
 
-            <h2>What do you need?</h2>
+            <h2>How can RescueAI help you?</h2>
 
             <p>
-                You can explore shelters, evacuation guidance,
-                or available emergency resources.
+                Describe your emergency situation below.
             </p>
 
-            <a class="btn" href="shelters.html">
-                Find Shelter
-            </a>
+            <textarea id="message"
+                placeholder="Example: There is a flood near my home. What should I do?"
+                rows="5"></textarea>
 
-            <a class="btn" href="resources.html">
-                Emergency Resources
-            </a>
+            <br><br>
+
+            <button class="btn" onclick="askRescueAI()">
+                Ask RescueAI
+            </button>
+
+            <div id="response"
+                style="margin-top: 25px; padding: 20px;">
+            </div>
 
         </section>
 
     </main>
 
-
     <footer>
 
         <p>
-            Smart Shelter & Resource Finder
-            | Hackathon Prototype
+            RescueAI | Hackathon Prototype
         </p>
 
     </footer>
 
+
+    <script>
+
+        async function askRescueAI() {
+
+            const message = document.getElementById("message").value;
+            const responseBox = document.getElementById("response");
+
+            if (!message.trim()) {
+                responseBox.innerText = "Please describe your situation.";
+                return;
+            }
+
+            responseBox.innerText = "🤖 RescueAI is thinking...";
+
+            try {
+
+                const response = await fetch("http://127.0.0.1:5000/ask", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        message: message
+                    })
+
+                });
+
+                const data = await response.json();
+
+                responseBox.innerText = data.reply || data.error;
+
+            } catch (error) {
+
+                responseBox.innerText =
+                    "Unable to connect to RescueAI backend. Please make sure the Flask server is running.";
+
+            }
+
+        }
+
+    </script>
+
 </body>
 
-</html>
+</html>         
+
