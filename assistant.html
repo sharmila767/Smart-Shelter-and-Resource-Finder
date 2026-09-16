@@ -4,115 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AI Assistant | RescueAI</title>
-
+    <title>RescueAI | AI Assistant</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="shelters.html">Find Shelter</a>
-        <a href="evacuation.html">Evacuation</a>
-        <a href="resources.html">Resources</a>
-        <a href="assistant.html">AI Assistant</a>
-    </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="shelters.html">Find Shelter</a>
+    <a href="evacuation.html">Evacuation</a>
+    <a href="resources.html">Resources</a>
+    <a href="assistant.html">AI Assistant</a>
+</nav>
 
-    <main>
+<main>
 
-        <section class="page-header">
+<section class="page-header">
+    <h1>🤖 RescueAI</h1>
+    <p>Intelligent Disaster Response Assistant</p>
+</section>
 
-            <h1>🤖 RescueAI</h1>
+<section class="hero">
 
-            <p>
-                Intelligent Disaster Response Assistant
-            </p>
+    <h2>How can RescueAI help you?</h2>
 
-        </section>
+    <textarea id="message"
+        rows="5"
+        placeholder="Example: There is a flood near my home. What should I do?"></textarea>
 
-        <section class="hero">
+    <br><br>
 
-            <h2>How can RescueAI help you?</h2>
+    <button class="btn" onclick="askRescueAI()">
+        Ask RescueAI
+    </button>
 
-            <p>
-                Describe your emergency situation below.
-            </p>
+    <div id="response" style="margin-top:25px; padding:20px;"></div>
 
-            <textarea id="message"
-                placeholder="Example: There is a flood near my home. What should I do?"
-                rows="5"></textarea>
+</section>
 
-            <br><br>
+</main>
 
-            <button class="btn" onclick="askRescueAI()">
-                Ask RescueAI
-            </button>
-
-            <div id="response"
-                style="margin-top: 25px; padding: 20px;">
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <p>
-            RescueAI | Hackathon Prototype
-        </p>
-
-    </footer>
+<footer>
+    <p>RescueAI | Hackathon Prototype</p>
+</footer>
 
 
-    <script>
+<script>
 
-        async function askRescueAI() {
+function askRescueAI() {
 
-            const message = document.getElementById("message").value;
-            const responseBox = document.getElementById("response");
+    const input = document.getElementById("message").value.toLowerCase();
+    const response = document.getElementById("response");
 
-            if (!message.trim()) {
-                responseBox.innerText = "Please describe your situation.";
-                return;
-            }
+    if (!input.trim()) {
+        response.innerText = "Please describe your emergency situation.";
+        return;
+    }
 
-            responseBox.innerText = "🤖 RescueAI is thinking...";
+    if (input.includes("flood")) {
 
-            try {
+        response.innerText =
+        "🌊 RESCUEAI: Move to higher ground immediately. " +
+        "Do not walk or drive through floodwater. " +
+        "Stay away from electrical wires and follow official evacuation instructions.";
 
-                const response = await fetch("http://127.0.0.1:5000/ask", {
+    }
 
-                    method: "POST",
+    else if (input.includes("earthquake")) {
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+        response.innerText =
+        "🌍 RESCUEAI: Drop, cover, and hold on during shaking. " +
+        "Stay away from windows and heavy objects. " +
+        "When the shaking stops, move to a safe open area if possible.";
 
-                    body: JSON.stringify({
-                        message: message
-                    })
+    }
 
-                });
+    else if (input.includes("fire")) {
 
-                const data = await response.json();
+        response.innerText =
+        "🔥 RESCUEAI: Leave the building using the safest exit. " +
+        "Do not use elevators. Stay away from smoke and contact emergency services if you are in danger.";
 
-                responseBox.innerText = data.reply || data.error;
+    }
 
-            } catch (error) {
+    else if (input.includes("cyclone")) {
 
-                responseBox.innerText =
-                    "Unable to connect to RescueAI backend. Please make sure the Flask server is running.";
+        response.innerText =
+        "🌪️ RESCUEAI: Stay indoors and away from windows. " +
+        "Follow official evacuation instructions and keep emergency supplies, water, and communication devices ready.";
 
-            }
+    }
 
-        }
+    else if (input.includes("landslide")) {
 
-    </script>
+        response.innerText =
+        "⛰️ RESCUEAI: Move away from the landslide area and unstable slopes. " +
+        "Do not approach debris. Follow evacuation instructions from local authorities.";
+
+    }
+
+    else {
+
+        response.innerText =
+        "🤖 RESCUEAI: Please tell me what disaster you are facing, such as a flood, earthquake, fire, cyclone, or landslide. I will provide basic safety guidance.";
+
+    }
+
+}
+
+</script>
 
 </body>
-
-</html>         
-
+</html>
