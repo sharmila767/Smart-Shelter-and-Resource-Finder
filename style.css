@@ -104,11 +104,18 @@ main {
 .card p {
     margin-bottom: 12px;
 }
-
 .card a {
-    color: #12355b;
+    display: inline-block;
+    color: white;
+    background: #12355b;
+    padding: 10px 14px;
+    border-radius: 8px;
     font-weight: bold;
     text-decoration: none;
+    margin-top: 10px;
+    font-size: 14px;
+    max-width: 100%;
+    text-align: center;
 }
 
 .card a:hover {
